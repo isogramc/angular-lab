@@ -6,11 +6,20 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { CarouselComponent } from './carousel/carousel.component';
 
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+
 import { ContactFormComponent } from './contact-form/contact-form.component';
 
 import { FooterComponent } from './footer/footer.component';
 
+import { Routes, RouterModule, Router } from "@angular/router";
+
+const routes: Routes = [
+  {path:'', redirectTo: '/', pathMatch:'full'},
+  {path:'home', redirectTo: '/', pathMatch:'full'},
+  {path:'about', component: CarouselComponent},
+  {path:'contact', component: ContactFormComponent}
+];
 
 @NgModule({
   declarations: [
@@ -23,7 +32,8 @@ import { FooterComponent } from './footer/footer.component';
   imports: [
     BrowserModule,
     FormsModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    RouterModule.forRoot(routes, {useHash:true})
   ],
   providers: [],
   bootstrap: [AppComponent]

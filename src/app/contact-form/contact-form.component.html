@@ -1,29 +1,39 @@
 <div class="container">
   <h1>Customer Request</h1>
-<form #customerForm="ngForm">
-  <div class="form-group">
+<form id="custForm" novalidate>
+  <div class="form-group" [ngClass]="{'has-danger': fullname.invalid && (fullname.dirty || fullname.touched)}">
     <label for="fullname">Your name</label>
-    <input [(ngModel)]="model.fullname" type="text" class="form-control" id="fullname" name="fullname" required="required">
+    <input [(ngModel)]="model.fullname" type="text" class="form-control" id="fullname" name="fullname" #fullname="ngModel" required>
+    <div class="form-control-feedback" *ngIf="fullname.errors && (fullname.dirty || fullname.touched)">
+      <p style="color:red" *ngIf="fullname.errors.required">*Name is required</p>
+    </div>
   </div>
-  <div class="form-group">
+  <div class="form-group" [ngClass]="{'has-danger': email.invalid && (email.dirty || email.touched)}">
     <label for="email">Email address</label>
-    <input [(ngModel)]="model.email" type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required="required">
+    <input [(ngModel)]="model.email" type="email" class="form-control" id="email" name="email" #email="ngModel" required>
+    <div class="form-control-feedback" *ngIf="email.errors && (email.dirty || email.touched)">
+      <p style="color:red" *ngIf="email.errors.required">*Email is required</p>
+    </div>
   </div>
   <div class="form-group">
     <label for="product">Select Product</label>
-    <select class="form-control" name=product id="product" required="required">
-      <option *ngFor="let product of products" [value]="product">{{product}}</option>
+    <select class="form-control" name=product id="product" [(ngModel)]="model.product">
+      <option *ngFor="let product of products" [value]=product>{{product}}</option>
     </select>
   </div>
-  <div class="form-group">
+  <div class="form-group" [ngClass]="{'has-danger': message.invalid && (message.dirty || message.touched)}">
     <label for="message">Message</label>
-    <textarea [(ngModel)]="model.message" class="form-control" name="message" id="message" rows="3" minlength="4" maxlength="300"></textarea>
+    <textarea [(ngModel)]="model.message" #message="ngModel" class="form-control" name="message" id="message" rows="3" minlength="4" maxlength="250" required></textarea>
+    <div class="form-control-feedback" *ngIf="message.errors && (message.dirty || message.touched)">
+      <p style="color:red" *ngIf="message.errors.required">*Message is required</p>
+    </div>
   </div>
-  <button type="button" (click)="submitForm($event)" class="btn btn-primary">Submit</button>
+  <button type="button" id="submit" *ngIf="(message.dirty || !message.errors) && (email.dirty || !email.errors) && (fullname.dirty || !fullname.errors)" (click)="submitForm($event)" class="btn btn-primary">Submit</button>
 </form>
   <br/><br/>
-  <div class="card">
-    <label for="modelv">Output</label>
-    <textarea type="text" class="form-control" id="modelv" name="modelv"></textarea>
+  <div id="modelvi" class="card" style="display:none">
+    <!-- TO DO: Remove after demo completed -->
+    <label for="modelv">Output(for demo purposes only) - Reload to start with a new form</label>
+    <textarea type="text" rows="5" class="form-control" id="modelv" name="modelv"></textarea>
   </div>
 </div>
