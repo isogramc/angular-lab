@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>Customer Request</h1>
+<form #customerForm="ngForm">
+  <div class="form-group">
+    <label for="fullname">Your name</label>
+    <input [(ngModel)]="model.fullname" type="text" class="form-control" id="fullname" name="fullname" required="required">
+  </div>
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input [(ngModel)]="model.email" type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required="required">
+  </div>
+  <div class="form-group">
+    <label for="product">Select Product</label>
+    <select class="form-control" name=product id="product" required="required">
+      <option *ngFor="let product of products" [value]="product">{{product}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="message">Message</label>
+    <textarea [(ngModel)]="model.message" class="form-control" name="message" id="message" rows="3" minlength="4" maxlength="300"></textarea>
+  </div>
+  <button type="button" (click)="submitForm($event)" class="btn btn-primary">Submit</button>
+</form>
+  <br/><br/>
+  <div class="card">
+    <label for="modelv">Output</label>
+    <textarea type="text" class="form-control" id="modelv" name="modelv"></textarea>
+  </div>
+</div>
