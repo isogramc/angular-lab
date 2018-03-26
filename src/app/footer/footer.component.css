@@ -2,3 +2,15 @@ footer{
   color: #999C9F;
   padding: 15px;
 }
+
+copyright{
+  font-size: 8px;
+}
+
+in{
+  background-color: yellow;
+  height: 50px;
+  weight: 50px;
+  color: black;
+  border-radius: 50px;
+}

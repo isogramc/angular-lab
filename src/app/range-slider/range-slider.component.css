@@ -2,31 +2,6 @@
   display: inline-block;
 }
 
-.my-top{
-  padding-top: 35px;
-}
-
-.gb-o{
-  background-color: gainsboro;
-}
-
-.darkform{
-  color: yellow;
-  background-color: darkslategray;
-  padding: 20px;
-  margin-top: 20px;
-}
-
-input{
-  background-color: whitesmoke;
-}
-
-button{
-  color: black;
-  background-color: yellow;
-  width:100%;
-}
-
 .hidden{
   display:none;
 }
@@ -36,8 +11,8 @@ button{
 }
 
 .slidecontainer {
+  width: 75%; /* Width of the outside container */
   bottom: 23px;
-  width: 80%;
   position: relative;
   display: inline-block;
 }

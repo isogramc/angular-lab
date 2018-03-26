@@ -14,11 +14,16 @@ import { FooterComponent } from './footer/footer.component';
 
 import { Routes, RouterModule, Router } from "@angular/router";
 
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { RangeSliderComponent } from './range-slider/range-slider.component';
+import { LibraryComponent } from './library/library.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+
 const routes: Routes = [
   {path:'', redirectTo: '/', pathMatch:'full'},
   {path:'home', redirectTo: '/', pathMatch:'full'},
-  {path:'about', component: CarouselComponent},
-  {path:'contact', component: ContactFormComponent}
+  {path:'contact', component: ContactFormComponent},
+  {path:'library', component: LibraryComponent}
 ];
 
 @NgModule({
@@ -27,13 +32,17 @@ const routes: Routes = [
     NavComponent,
     CarouselComponent,
     ContactFormComponent,
-    FooterComponent
+    FooterComponent,
+    RangeSliderComponent,
+    LibraryComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     NgbModule.forRoot(),
-    RouterModule.forRoot(routes, {useHash:true})
+    RouterModule.forRoot(routes, {useHash:true}),
+    AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

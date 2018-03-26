@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { Customer } from '../customer';
 
-import {ReactiveFormsModule, Validator, ValidatorFn, FormsModule, FormGroup, FormControl, Validators, NG_VALIDATORS} from "@angular/forms";
-
 import {Router} from "@angular/router";
 
 @Component({
@@ -14,16 +12,22 @@ import {Router} from "@angular/router";
 
 export class ContactFormComponent implements OnInit{
 
-  custForm: FormGroup;
   products = ['suitcase', 'boots', 'headphones', 'magazine'];
   submitted = false;
 
-  model = new Customer(this.getRandomInt(1, 30000), '','','','');
+  model = new Customer(this.getRandomInt(1, 30000), '','','',100, "", "");
 
   submitForm (event) {
+    if(this.model.score > 65){
+      this.model.satisfaction = "satisfied";
+    } else if(this.model.score <= 65 && this.model.score >= 30){
+      this.model.satisfaction = "indifferent";
+    } else if (this.model.score < 30){
+      this.model.satisfaction = "unsatisfied"
+    }
     var test = JSON.stringify(this.model);
-    document.getElementById("modelv").innerText += test;
-    document.getElementById("modelvi").style.display = "block";
+    //document.getElementById("modelv").innerText += test;
+    //document.getElementById("modelvi").style.display = "block";
     document.getElementById("submit").style.display = "none";
     console.log(test);
   }

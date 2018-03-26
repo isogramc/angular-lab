@@ -1,6 +1,26 @@
+<div class="gb-o">
 <div class="container">
-  <h1>Customer Request</h1>
-<form id="custForm" novalidate>
+<div class = "row">
+<div class="col">
+  <div class="text-center my-top">
+  <h2>Happiness Indicator</h2>
+  <h4>How happy are you right now?</h4>
+  <div class="img-changer">
+    <div id="img1"><img src="../../assets/smiles.png" class="img-fluid" alt="happy-smile" *ngIf="model.score>65"></div>
+    <div id="img2"><img src="../../assets/meh.png" class="img-fluid" alt="meh-smile" *ngIf="model.score>=30 && model.score<=65"></div>
+    <div id="img3"><img src="../../assets/sad.png" class="img-fluid" alt="sad-smile" *ngIf="model.score<30"></div>
+  </div>
+  <div>
+    <div class="box"><i class="fa fa-angle-left fa-5x"></i></div>
+    <div class="slidecontainer"><input id="myRange" name="myRange" type="range" min="1" max="100" [value]="100" class="slider" [(ngModel)]="model.score"></div>
+    <div class="box"><i class="fa fa-angle-right fa-5x"></i></div>
+  </div>
+  </div>
+</div>
+  <div class="col">
+    <div class="darkform">
+      <form id="custForm" novalidate>
+  <h1>Elegant Communication</h1>
   <div class="form-group" [ngClass]="{'has-danger': fullname.invalid && (fullname.dirty || fullname.touched)}">
     <label for="fullname">Your name</label>
     <input [(ngModel)]="model.fullname" type="text" class="form-control" id="fullname" name="fullname" #fullname="ngModel" required>
@@ -28,12 +48,16 @@
       <p style="color:red" *ngIf="message.errors.required">*Message is required</p>
     </div>
   </div>
-  <button type="button" id="submit" *ngIf="(message.dirty || !message.errors) && (email.dirty || !email.errors) && (fullname.dirty || !fullname.errors)" (click)="submitForm($event)" class="btn btn-primary">Submit</button>
+  <button type="button" id="submit" *ngIf="(message.dirty || !message.errors) && (email.dirty || !email.errors) && (fullname.dirty || !fullname.errors)" (click)="submitForm($event)" class="btn btn-primary">CONTACT ME</button>
 </form>
-  <br/><br/>
-  <div id="modelvi" class="card" style="display:none">
-    <!-- TO DO: Remove after demo completed -->
-    <label for="modelv">Output(for demo purposes only) - Reload to start with a new form</label>
-    <textarea type="text" rows="5" class="form-control" id="modelv" name="modelv"></textarea>
+    </div>
+    <br/><br/>
+    <div id="modelvi" class="card" style="display:none">
+      <!-- TO DO: Remove after demo completed
+      <label for="modelv">Output(for demo purposes only) - Reload to start with a new form</label>
+      <textarea type="text" rows="5" class="form-control" id="modelv" name="modelv"></textarea>-->
+    </div>
   </div>
+</div>
+</div>
 </div>

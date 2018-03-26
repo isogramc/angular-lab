@@ -1,0 +1,33 @@
+img{
+  padding:0;
+  margin:0;
+}
+
+
+@media screen and (min-width: 600px) {
+  .responsive {
+    width:100%;
+    max-width: 650px;
+    min-width: 250px;
+    height: auto;
+  }
+}
+
+
+@media screen and (min-width: 400px) {
+  .responsive {
+    width:100%;
+    max-width: 650px;
+    min-width: 350px;
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .responsive {
+    width:100%;
+    max-width: 800px;
+    min-width: 250px;
+    height: auto;
+  }
+}
