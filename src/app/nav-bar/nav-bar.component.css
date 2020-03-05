@@ -1,0 +1,7 @@
+.nav-link{
+    padding: 0;
+}
+
+.nav-link.active{
+    padding: 0;
+}
